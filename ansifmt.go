@@ -62,7 +62,7 @@ func (fmtr *Formatter) Printf(a ...any) (n int, err error) {
 // Println prints the input string set to stdout, appending a newline character. It does
 // not take arguments for formatting. See ansifmt.Printf()
 func (fmtr *Formatter) Println() (n int, err error) {
-  n, err = fmt.Fprint(os.Stdout, fmtr.String()+"\n")
+  n, err = fmt.Fprintln(os.Stdout, fmtr.String())
   return n, err
 }
 
