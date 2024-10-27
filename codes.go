@@ -12,11 +12,11 @@ type Code interface {
 type Escape string
 
 func (eac Escape) String() string {
-  return "\\"+string(eac)+"["
+  return string(eac)+"["
 }
 
 const (
-  ESCAPE_OCT Escape = "033"
+  ESCAPE_OCT Escape = "\033"
   ESCAPE_HEX Escape = "\x1b"
 )
 
