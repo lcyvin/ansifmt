@@ -55,13 +55,15 @@ func (fmtr *Formatter) Join(sep string) string {
 // built string, similar to fmt.Printf() and prints the string to stdout. It will not
 // contain a newline unless one was included within the input string set.
 func (fmtr *Formatter) Printf(a ...any) (n int, err error) {
-  return fmt.Fprintf(os.Stdout, fmtr.String(), a...)
+  n, err = fmt.Fprintf(os.Stdout, fmtr.String(), a...)
+  return n, err
 }
 
 // Println prints the input string set to stdout, appending a newline character. It does
 // not take arguments for formatting. See ansifmt.Printf()
 func (fmtr *Formatter) Println() (n int, err error) {
-  return fmt.Fprint(os.Stdout, fmtr.String()+"\n")
+  n, err = fmt.Fprint(os.Stdout, fmtr.String()+"\n")
+  return n, err
 }
 
 func (fmtr *Formatter) ansiOp(op func(Code) string, codes ...Code) *Formatter {
